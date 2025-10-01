@@ -3,6 +3,9 @@ import ballerina/http;
 type OrgConfig record {
     string orgName;
     string orgId;
+    int inty;
+    boolean booly;
+    boolean | int boolinty;
 };
 
 configurable map<OrgConfig> orgConfigs = ?;
