@@ -25,6 +25,23 @@ configurable map<int>? testIntMap = ();
 
 service /hello on new http:Listener(8090) {
     resource function get greeting() returns string {
-        return "Hello, orgConfigs";
+        string output = "=== Config Values ===\n\n";
+
+        // Required configs
+        output += "orgConfigs: " + orgConfigs.toString() + "\n\n";
+        output += "orgconfigsingle: " + orgconfigsingle.toString() + "\n\n";
+
+        // Optional configs
+        output += "testString: " + testString.toString() + "\n";
+        output += "testInt: " + testInt.toString() + "\n";
+        output += "testBoolean: " + testBoolean.toString() + "\n";
+        output += "testFloat: " + testFloat.toString() + "\n";
+        output += "testDecimal: " + testDecimal.toString() + "\n";
+        output += "testStringArray: " + testStringArray.toString() + "\n";
+        output += "testIntArray: " + testIntArray.toString() + "\n";
+        output += "testStringMap: " + testStringMap.toString() + "\n";
+        output += "testIntMap: " + testIntMap.toString() + "\n";
+
+        return output;
     }
 }
